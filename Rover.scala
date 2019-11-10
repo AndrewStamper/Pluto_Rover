@@ -25,6 +25,8 @@ trait mapTrait{
 
 class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTrait{
 	Location=(Location._1 % planet.getSize._1,Location._2 % planet.getSize._2)
+	Heading = Heading % 4
+	//ensures that heading and location are both valid values that fall within the map limits
 
 	def input(c:Char):Boolean={return false}
 
@@ -34,7 +36,11 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 
 	def getLoc:(Int,Int)={return Location}
 
-	def getRot:(Char)=(return (0))
+	def getRot:(Char)={
+		var Headings = Array('N','E','S','W')
+		return (Headings(Heading))//returns char corresponding to integer value heading
+
+	}
 
 }
 

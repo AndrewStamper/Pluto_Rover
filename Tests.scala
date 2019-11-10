@@ -30,6 +30,17 @@ class Tests extends FlatSpec {
 		var kata = new Rover((7,7),0,new map((4,5)))
 		assert(kata.getLoc==(3,2))
 	}
+	it should "return correct heading when facing each direction" in{
+		var kataN = new Rover((7,7),0,new map((4,5)))
+		assert(kataN.getRot=='N')
+		var kataE = new Rover((7,7),1,new map((4,5)))
+		assert(kataE.getRot=='E')
+		var kataS = new Rover((7,7),2,new map((4,5)))
+		assert(kataS.getRot=='S')	
+		var kataW = new Rover((7,7),3,new map((4,5)))
+		assert(kataW.getRot=='W')
+
+	}
 
 	"map" must "return correct size" in{
 		var pluto = new map((10,10))
