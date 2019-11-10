@@ -41,6 +41,19 @@ class Tests extends FlatSpec {
 		assert(kataW.getRot=='W')
 
 	}
+	it should "move North when facing north" in{
+		var kata = new Rover((0,2),0,new map((10,10)))
+		kata.move('F')
+		assert(kata.getLoc==(0,3))
+	
+	}
+
+	it should "move East when facing east" in{
+		var kata = new Rover((0,2),1,new map((10,10)))
+		kata.move('F')
+		assert(kata.getLoc==(1,2))
+	
+	}
 
 	"map" must "return correct size" in{
 		var pluto = new map((10,10))
