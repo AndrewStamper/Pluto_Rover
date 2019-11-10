@@ -154,6 +154,11 @@ class Tests extends FlatSpec {
 		assert(pluto.getSize==(10,10))
 
 	}
+	it should "return isClear correctly" in{
+		var pluto = new map((10,10),Set((1,1)))
+		assert(pluto.isClear((0,0))==true)
+		assert(pluto.isClear((1,1))==false)
+	}
 
 
 	
