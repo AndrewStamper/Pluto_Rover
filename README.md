@@ -27,6 +27,7 @@ possible point and reports the obstacle.
 
 
 Here is an example:
+
 ● Let's say that the rover is located at 0,0 facing North on a 100x100 grid.
 
 ● Given the command "FFRFF" would put the rover at 2,2 facing East.
@@ -34,6 +35,7 @@ Here is an example:
 
 
 Tips!
+
 ● Apply good software design principles.
 
 ● Keep your design simple, don't over-engineer.
