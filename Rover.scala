@@ -39,6 +39,7 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 
 	def move(c:Char):Boolean={
 		var Moveby=0
+		var oldLoc=Location
 		c match {
 			case 'F' =>Moveby= 1
 			case 'B' =>Moveby= -1
@@ -57,7 +58,12 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 		Location=(Location._1 % planet.getSize._1,Location._2 % planet.getSize._2)
 		if (Location._1<0){Location =( Location._1 + planet.getSize._1,Location._2)}//scala modulo X does not keep in range 0-X, just <X
 		if (Location._2<0){Location =( Location._1 , Location._2 + planet.getSize._2)}
-		return true
+
+		if (planet.isClear(Location)){return true}
+		else {
+			Location=oldLoc
+			return false
+		}
 	}
 
 
@@ -83,9 +89,13 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 
 }
 
-class map (Dimensions:(Int,Int)) extends mapTrait {
+class map (Dimensions:(Int,Int),obstacles:scala.collection.immutable.Set[(Int,Int)]) extends mapTrait {
 
-	def isClear(loc:(Int,Int)):Boolean={return false}
+	def isClear(loc:(Int,Int)):Boolean={
+
+	return obstacles.contains(loc)==false//return true if not in the set
+
+	}
 
 	def getSize:(Int,Int)={return Dimensions}
 
