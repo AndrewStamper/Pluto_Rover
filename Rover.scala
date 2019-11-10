@@ -59,9 +59,14 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 
 
 	def rotate(c:Char)={
-	
-	Heading=(Heading + 1 )% 4
-
+		var rotateby=0
+		c match {
+			case 'L' =>rotateby= -1
+			case 'R' =>rotateby=1
+			case _ =>println("bad input to rotate, no movement made input:" + c)
+		}
+		Heading=(Heading + rotateby )% 4
+		if (Heading<0){Heading+=4}//scala modulo X does not keep in range 0-X, just <X
 
 	}
 
