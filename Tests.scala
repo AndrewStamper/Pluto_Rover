@@ -132,6 +132,18 @@ class Tests extends FlatSpec {
 
 		
 	}
+	it should "allow multiple inputs" in{
+		var kata = new Rover((0,0),0,new map((8,8),Set()))
+		kata.input("FFF")
+		assert(kata.getLoc==(0,3))
+
+	}
+	it should "allow multiple inputs but stop after first unsuccessfull" in{
+		var kata = new Rover((0,0),0,new map((8,8),Set((0,2))))
+		kata.input("FFFLF")
+		assert(kata.getLoc==(0,1))
+
+	}
 	
 
 

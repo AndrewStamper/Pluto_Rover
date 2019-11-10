@@ -28,6 +28,18 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 	Heading = Heading % 4
 	//ensures that heading and location are both valid values that fall within the map limits
 
+	def input(s:String):Boolean={//overloaded function input to allow this
+		var i=0
+		var output=true
+		while(i<s.length && output==true){
+			output=input(s(i))
+			i +=1
+		}	
+		return output
+
+	}
+
+
 	def input(c:Char):Boolean={
 		c match {
 			case 'F'|'B' =>move(c)
