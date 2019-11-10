@@ -41,19 +41,53 @@ class Tests extends FlatSpec {
 		assert(kataW.getRot=='W')
 
 	}
-	it should "move North when facing north" in{
+	it should "move forwads North when facing north" in{
 		var kata = new Rover((0,2),0,new map((10,10)))
 		kata.move('F')
 		assert(kata.getLoc==(0,3))
 	
 	}
 
-	it should "move East when facing east" in{
+	it should "move forwads East when facing east" in{
 		var kata = new Rover((0,2),1,new map((10,10)))
 		kata.move('F')
 		assert(kata.getLoc==(1,2))
+	}
+	it should "move forwads West and south as required" in{
+		var kataS = new Rover((0,2),2,new map((10,10)))
+		kataS.move('F')
+		assert(kataS.getLoc==(0,1))
+	
+		var kataW = new Rover((2,2),3,new map((10,10)))
+		kataW.move('F')
+		assert(kataW.getLoc==(1,2))
 	
 	}
+	it should "move BACKWARDS in all directions as required" in{
+		var kataN = new Rover((7,7),0,new map((10,10)))
+		kataN.move('B')
+		assert(kataN.getLoc==(7,6))
+		var kataE = new Rover((7,7),1,new map((10,10)))
+		kataE.move('B')
+		assert(kataE.getLoc==(6,7))
+		var kataS = new Rover((7,7),2,new map((10,10)))
+		kataS.move('B')
+		assert(kataS.getLoc==(7,8))	
+		var kataW = new Rover((7,7),3,new map((10,10)))
+		kataW.move('B')
+		assert(kataW.getLoc==(8,7))
+	
+	}
+
+	it should "use move command when input is F" in{
+		var kataN = new Rover((7,7),0,new map((10,10)))
+		kataN.input('B')
+		assert(kataN.getLoc==(7,6))
+	}
+	
+
+
+
 
 	"map" must "return correct size" in{
 		var pluto = new map((10,10))
