@@ -31,6 +31,7 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 	def input(c:Char):Boolean={
 		c match {
 			case 'F'|'B' =>move(c)
+			case 'L'|'R' =>rotate(c);return true
 			case _ =>println("bad input to Rover. Nothing done, input:" + c);return false
 		}
 
@@ -57,7 +58,12 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 	}
 
 
-	def rotate(c:Char)={}
+	def rotate(c:Char)={
+	
+	Heading=(Heading + 1 )% 4
+
+
+	}
 
 	def getLoc:(Int,Int)={return Location}
 

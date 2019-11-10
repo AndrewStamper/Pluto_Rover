@@ -84,6 +84,30 @@ class Tests extends FlatSpec {
 		kataN.input('B')
 		assert(kataN.getLoc==(7,6))
 	}
+	it should "rotate R" in{
+		var kataL = new Rover((7,7),0,new map((10,10)))
+		assert(kataL.getRot=='N')
+		kataL.input('R')
+		assert(kataL.getRot=='E')
+		kataL.input('R')
+		assert(kataL.getRot=='S')
+		kataL.input('R')
+		assert(kataL.getRot=='W')
+		kataL.input('R')
+		assert(kataL.getRot=='N')
+	}
+	it should "rotate L" in{
+		var kataL = new Rover((7,7),0,new map((10,10)))
+		assert(kataL.getRot=='N')
+		kataL.input('L')
+		assert(kataL.getRot=='W')
+		kataL.input('L')
+		assert(kataL.getRot=='S')
+		kataL.input('L')
+		assert(kataL.getRot=='E')
+		kataL.input('L')
+		assert(kataL.getRot=='N')
+	}
 	
 
 
