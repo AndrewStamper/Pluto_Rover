@@ -23,7 +23,8 @@ trait mapTrait{
 
 
 
-class Rover  (Location:(Int,Int),Heading:Int,planet:map) extends RoverTrait{
+class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTrait{
+	Location=(Location._1 % planet.getSize._1,Location._2 % planet.getSize._2)
 
 	def input(c:Char):Boolean={return false}
 
@@ -31,7 +32,7 @@ class Rover  (Location:(Int,Int),Heading:Int,planet:map) extends RoverTrait{
 
 	def rotate(c:Char)={}
 
-	def getLoc:(Int,Int)={return (1,1)}
+	def getLoc:(Int,Int)={return Location}
 
 	def getRot:(Char)=(return (0))
 
@@ -41,7 +42,7 @@ class map (Dimensions:(Int,Int)) extends mapTrait {
 
 	def isClear(loc:(Int,Int)):Boolean={return false}
 
-	def getSize:(Int,Int)={return (1,1)}
+	def getSize:(Int,Int)={return Dimensions}
 
 
 }
