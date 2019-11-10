@@ -108,6 +108,23 @@ class Tests extends FlatSpec {
 		kataL.input('L')
 		assert(kataL.getRot=='N')
 	}
+	it should "wrap if move is off board" in{
+		var kataN = new Rover((7,7),0,new map((8,8)))
+		kataN.move('F')
+		assert(kataN.getLoc==(7,0))
+
+		var kataE = new Rover((7,7),1,new map((8,8)))
+		kataE.move('F')
+		assert(kataE.getLoc==(0,7))
+
+		var kataS = new Rover((7,0),2,new map((8,8)))
+		kataS.move('F')
+		assert(kataS.getLoc==(7,7))	
+
+		var kataW = new Rover((0,7),3,new map((8,8)))
+		kataW.move('F')
+		assert(kataW.getLoc==(7,7))
+	}
 	
 
 
