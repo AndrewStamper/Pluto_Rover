@@ -54,6 +54,9 @@ class Rover  (var Location:(Int,Int),var Heading:Int,planet:map) extends RoverTr
 
 			case 3 =>Location=(Location._1-Moveby,Location._2)//move west
 		}
+		Location=(Location._1 % planet.getSize._1,Location._2 % planet.getSize._2)
+		if (Location._1<0){Location =( Location._1 + planet.getSize._1,Location._2)}//scala modulo X does not keep in range 0-X, just <X
+		if (Location._2<0){Location =( Location._1 , Location._2 + planet.getSize._2)}
 		return true
 	}
 
