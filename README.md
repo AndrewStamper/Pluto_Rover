@@ -1,3 +1,10 @@
+if given more time and a well defined interface I would change interface to Rover and map to make some variables and methods private (and instead use only the interface of input() and get___() methods)
+Would also consider further overloading input() so as to take a parameter of any type , long as that type is iteratable and iterator.get() returns a charachter. i.e check type of parameter is a subtype of iterable e.t.c. 
+
+
+
+
+
 After NASA’s New Horizon successfully flew past Pluto, they now plan to land a Pluto Rover
 to further investigate the surface. You are responsible for developing the component that will
 allow the Rover to move around the planet. As you won’t get a chance to fix your code once
